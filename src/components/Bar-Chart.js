@@ -40,18 +40,16 @@ const BarChart = ({ gdpData, handleMouseEnter, handleMouseLeave }) => {
           y="40"
           transform="rotate(-90)"
         >Gross Domestic Product in Billions</text>
-        {gdpData.map((bar, i) => {
-          return <Bar
-            key={i}
-            bar={bar}
-            x={xScale(new Date(bar[0]))}
-            y={yScale(bar[1])}
-            width={w / gdpData.length}
-            height={h - yScale(bar[1]) - margin.top}
-            handleMouseEnter={handleMouseEnter}
-            handleMouseLeave={handleMouseLeave}
-          />
-        })}
+        {gdpData.map((bar, i) => <Bar
+          key={i}
+          bar={bar}
+          x={xScale(new Date(bar[0]))}
+          y={yScale(bar[1])}
+          width={w / gdpData.length}
+          height={h - yScale(bar[1]) - margin.top}
+          handleMouseEnter={handleMouseEnter}
+          handleMouseLeave={handleMouseLeave}
+        />)}
       </svg>
     </div>
   );
