@@ -21,35 +21,11 @@ const BarChart = ({ gdpData, handleMouseEnter, handleMouseLeave }) => {
 
   return (
     <div className="chart-container">
-      <svg
-        className="bar-chart"
-        viewBox={`0 0 ${w} ${h}`}>
-        <Axis
-          className="x-axis"
-          transform={`translate(0, ${h - margin.top})`}
-          scale={xScale}
-        />
-        <Axis
-          className="y-axis"
-          transform={`translate(${margin.left}, 0)`}
-          scale={yScale}
-        />
-        <text
-          className="y-label"
-          x="-260"
-          y="40"
-          transform="rotate(-90)"
-        >Gross Domestic Product in Billions</text>
-        {gdpData.map((bar, i) => <Bar
-          key={i}
-          bar={bar}
-          x={xScale(new Date(bar[0]))}
-          y={yScale(bar[1])}
-          width={w / gdpData.length}
-          height={h - yScale(bar[1]) - margin.top}
-          handleMouseEnter={handleMouseEnter}
-          handleMouseLeave={handleMouseLeave}
-        />)}
+      <svg className="bar-chart" viewBox={`0 0 ${w} ${h}`}>
+        <Axis className="x-axis" transform={`translate(0, ${h - margin.top})`} scale={xScale} />
+        <Axis className="y-axis" transform={`translate(${margin.left}, 0)`} scale={yScale} />
+        <text className="y-label" x="-260" y="40" transform="rotate(-90)">Gross Domestic Product in Billions</text>
+        {gdpData.map((bar, i) => <Bar key={i} bar={bar} x={xScale(new Date(bar[0]))} y={yScale(bar[1])} width={w / gdpData.length} height={h - yScale(bar[1]) - margin.top} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} />)}
       </svg>
     </div>
   );

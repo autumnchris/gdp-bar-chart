@@ -17,11 +17,7 @@ const Axis = ({ className, transform, scale }) => {
       .call(angle);
   }, [scale]);
 
-  return <g
-    className={className}
-    transform={transform}
-    style={{fontFamily: "'Noto Sans', sans-serif"}}
-  ></g>;
+  return <g className={className} transform={transform} style={{fontFamily: "'Noto Sans', sans-serif"}}></g>;
 }
 
 export default Axis;

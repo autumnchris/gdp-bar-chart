@@ -50,17 +50,10 @@ const App = () => {
         <h2>1947-2015</h2>
       </header>
       <main>
-        {loadingStatus ? <LoadingSpinner /> : loadSuccess ? <BarChart
-          gdpData={gdpData}
-          handleMouseEnter={handleMouseEnter}
-          handleMouseLeave={handleMouseLeave}
-        /> : <ErrorMessage />}
+        {loadingStatus ? <LoadingSpinner /> : loadSuccess ? <BarChart gdpData={gdpData} handleMouseEnter={handleMouseEnter} handleMouseLeave={handleMouseLeave} /> : <ErrorMessage />}
         {tooltip && <Tooltip tooltip={tooltip} />}
       </main>
-      <footer>Created by <a
-        href="https://autumnchris.github.io/portfolio"
-        target="_blank"
-      >Autumn Bullard</a> &copy; {new Date().getFullYear()}</footer>
+      <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; {new Date().getFullYear()}</footer>
     </React.Fragment>
   );
 }
