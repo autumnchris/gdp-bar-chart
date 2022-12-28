@@ -17,7 +17,7 @@ const App = () => {
       setLoadSuccess(true);
       setGDPData(dataset.data);
   
-    }).catch((err) => {
+    }).catch(() => {
       setLoadingStatus(false);
       setLoadSuccess(false);
       setGDPData([]);
