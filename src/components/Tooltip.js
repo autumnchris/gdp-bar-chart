@@ -9,7 +9,7 @@ const Tooltip = ({ tooltip }) => {
   ];
 
   return <div className="tooltip" style={{ top: tooltip.top, left: tooltip.left }}
-  >{`${tooltip.date.split('-')[0]} Q${quarter.indexOf(tooltip.date.split('-')[1]) + 1}`}<br/>${`${tooltip.amount}B`}</div>;
+  >{tooltip.date.split('-')[0]} Q{quarter.indexOf(tooltip.date.split('-')[1]) + 1}<br/>{`${tooltip.amount}B`}</div>;
 }
 
 export default Tooltip;
