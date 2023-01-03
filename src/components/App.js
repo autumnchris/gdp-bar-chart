@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { json } from 'd3';
-import BarChart from './Bar-Chart';
-import ErrorMessage from './Error-Message';
-import LoadingSpinner from './Loading-Spinner';
+import BarChart from './BarChart';
+import ErrorMessage from './ErrorMessage';
+import LoadingSpinner from './LoadingSpinner';
 
 const App = () => {
   const [loadingStatus, setLoadingStatus] = useState(true);
