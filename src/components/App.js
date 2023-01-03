@@ -6,18 +6,15 @@ import LoadingSpinner from './Loading-Spinner';
 
 const App = () => {
   const [loadingStatus, setLoadingStatus] = useState(true);
-  const [loadSuccess, setLoadSuccess] = useState(false);
   const [gdpData, setGDPData] = useState([]);
 
   useEffect(() => {
     json('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json').then(dataset => {
       setLoadingStatus(false);
-      setLoadSuccess(true);
       setGDPData(dataset.data);
   
     }).catch(() => {
       setLoadingStatus(false);
-      setLoadSuccess(false);
       setGDPData([]);
     });
   }, []);
@@ -29,7 +26,7 @@ const App = () => {
         <h2>1947-2015</h2>
       </header>
       <main>
-        {loadingStatus ? <LoadingSpinner /> : loadSuccess ? <BarChart gdpData={gdpData} /> : <ErrorMessage />}
+        {loadingStatus && gdpData.length === 0 ? <LoadingSpinner /> : gdpData.length !== 0 ? <BarChart gdpData={gdpData} /> : <ErrorMessage />}
       </main>
       <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; {new Date().getFullYear()}</footer>
     </React.Fragment>
