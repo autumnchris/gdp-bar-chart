@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { json } from 'd3';
-import BarChart from './BarChart';
-import ErrorMessage from './ErrorMessage';
-import LoadingSpinner from './LoadingSpinner';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import BarChart from './components/BarChart';
+import ErrorMessage from './components/ErrorMessage';
+import LoadingSpinner from './components/LoadingSpinner';
 
 const App = () => {
   const [loadingStatus, setLoadingStatus] = useState(true);
@@ -21,14 +23,11 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <header>
-        <h1>United States GDP</h1>
-        <h2>1947-2015</h2>
-      </header>
+      <Header />
       <main>
         {loadingStatus && gdpData.length === 0 ? <LoadingSpinner /> : gdpData.length !== 0 ? <BarChart gdpData={gdpData} /> : <ErrorMessage />}
       </main>
-      <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; {new Date().getFullYear()}</footer>
+      <Footer />
     </React.Fragment>
   );
 }
